@@ -19,9 +19,8 @@ public class CategoryController {
 	CategoryService categoryService;
 	
     @GetMapping("list")
-    public String list(Model model) throws InterruptedException {
+    public String list(Model model) {
     		List<Category> genres = categoryService.list();
-    		System.out.println(genres);
     		model.addAttribute("categories", genres);
     		return "categories/list";
     }
