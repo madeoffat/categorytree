@@ -8,7 +8,10 @@
 <div th:each="parent : ${categories}">
     <span th:text="${parent.genreName}"></span>
 	<div th:each="child : ${parent.children}" >
-	  <span th:text=" ${child.genreName}"></span>
-  	</div>
+	<span th:text=" ${child.genreName}"></span>
+		<div th:each=" grandChild: ${child.children}" >
+	  	<span th:text=" ${grandChild.genreName}"></span>
+ 		 </div>
+	</div>
 </div>
 </body>
