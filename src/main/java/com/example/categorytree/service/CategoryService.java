@@ -69,7 +69,7 @@ public class CategoryService {
 		}
 	}
 	
-	public List<Category> list() throws InterruptedException {
+	public List<Category> list() {
 		List<Category> categories = get(ROOT);
 		create(categories);
         return categories;
