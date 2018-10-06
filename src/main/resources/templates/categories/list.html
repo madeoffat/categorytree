@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title>Category</title>
+    <title>Category Tree</title>
 </head>
 <body>
-<div th:each="parent : ${categories}">
-    <span th:text="${parent.genreName}"></span>
-	<div th:each="child : ${parent.children}" >
-	<span th:text=" ${child.genreName}"></span>
-		<div th:each=" grandChild: ${child.children}" >
-	  	<span th:text=" ${grandChild.genreName}"></span>
- 		 </div>
-	</div>
-</div>
+<ul th:each="parent : ${categories}">
+	<li th:text="${parent.genreName}"></li>
+	    	<ul th:each="child : ${parent.children}">
+			<li th:text=" ${child.genreName}"></li>
+				<ul th:each=" grandChild: ${child.children}">
+					<li th:text=" ${grandChild.genreName}"></li>
+				</ul>
+		</ul>
+</ul>
 </body>

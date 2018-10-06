@@ -1,24 +1,22 @@
 package com.example.categorytree.entity;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "categories")
+@Table(name = "itmes")
 @NoArgsConstructor
-public class Category {
+public class Item implements Serializable{
 	@Id
 	private int genreId;
+	private int rank;
 	private String genreName;
-	private int genrePath;
-	@Transient	
-	private List<Category> children;
+	private String itemName;
 }
