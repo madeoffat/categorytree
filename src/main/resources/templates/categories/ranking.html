@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Ranking</title>
+</head>
+<body>
+<div th:each="rank : ${rankMap}">
+	<span th:text="${rank.key}"></span>
+	<ul>
+		<li th:each="item : ${rank.value}">
+			<span th:text="${item.rank}"></span>
+			<span th:text="${item.itemName}"></span>
+		</li>
+	</ul>
+</div>
+</body>
