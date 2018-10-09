@@ -10,22 +10,18 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "items", indexes = @Index(columnList = "genreId, rank"))
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Item implements Serializable {
+@Table(name = "child_relations", indexes = @Index(columnList = "genreId, childGenreId"))
+public class ChildRelation implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private int genreId;
-	private int rank;
-	private String genreName;
-	private String itemName;
+	private int childGenreId;
 }

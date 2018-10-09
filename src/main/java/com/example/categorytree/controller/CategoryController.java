@@ -16,21 +16,21 @@ import com.example.categorytree.service.CategoryService;
 @Controller
 @RequestMapping("category")
 public class CategoryController {
-	
+
 	@Autowired
 	CategoryService categoryService;
-	
-    @GetMapping("list")
-    public String list(Model model) {
-    		List<Category> genres = categoryService.tree();
-    		model.addAttribute("categories", genres);
-    		return "categories/list";
-    }
-    
-    @GetMapping("ranking")
-    public String ranking(Model model) {
-    		Map<String, List<Item>> rankMap = categoryService.ranking();
-    		model.addAttribute("rankMap", rankMap);
-    		return "categories/ranking";
-    }
+
+    @GetMapping
+	public String tree(Model model) {
+		List<Category> categories = categoryService.tree();
+		model.addAttribute("categories", categories);
+		return "category/tree";
+	}
+
+	@GetMapping("ranking")
+	public String ranking(Model model) {
+		Map<String, List<Item>> rankMap = categoryService.ranking();
+		model.addAttribute("rankMap", rankMap);
+		return "category/ranking";
+	}
 }
